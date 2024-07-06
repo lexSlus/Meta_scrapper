@@ -1,0 +1,143 @@
+[tool.black]
+line-length = 120
+
+[tool.ruff]
+line-length = 120
+
+select = ["ALL"]
+fix = true
+
+ignore = [
+    "T201",
+    "G004", # https://docs.astral.sh/ruff/rules/logging-f-string/
+    "N816", # fix flask blueprints names to not use mixedCase
+
+    "ANN",
+    # https://github.com/astral-sh/ruff/pull/4427
+    # equivalent to keep-runtime-typing
+    "UP006",
+    "UP007",
+
+    "TID252",
+    # we use asserts in tests and to hint mypy
+    "S101",
+    "S102",
+    "S104",
+    "S324",
+    # maybe we can enable this in future
+    # we'd want to have consistent docstrings in future
+    "D",
+    "PGH003",
+    "PGH004",
+    "RET504",
+    "RET505",
+    "RET506",
+    "RET507",
+    "RET503",
+    "BLE001",
+    "B008",
+    "N811",
+    "N804",
+    "N818",
+    # Variable `T` in function should be lowercase
+    # this seems a potential bug or opportunity for improvement in ruff
+    "N806",
+
+    # first argument should named self (found in tests)
+    "N805",
+
+    "N815",
+
+    # shadowing builtins
+    "A001",
+    "A002",
+    "A003",
+
+    "ARG001",
+    "ARG002",
+    "ARG003",
+    "ARG004",
+    "ARG005",
+    "FBT001",
+    "FBT002",
+    "FBT003",
+
+    "PT001",
+    "PT023",
+
+    # this is pretty much handled by black
+    "E501",
+
+    # enable these, we have some in tests
+    "B006",
+    "PT004",
+    "PT007",
+    "PT011",
+    "PT012",
+    "PT015",
+    "PT017",
+    "C414",
+    "N802",
+
+    "SIM117",
+    "SIM102",
+
+    "F841",
+    "B027",
+    "B905",
+    "ISC001",
+
+    # same?
+    "S105",
+    "S106",
+
+    "DTZ003",
+    "DTZ005",
+
+    "RSE102",
+    "SLF001",
+
+    # in tests
+    "DTZ001",
+
+    "EM101",
+    "EM102",
+    "EM103",
+
+    "B904",
+    "B019",
+
+    "N801",
+    "N807",
+
+    # pandas
+    "PD",
+
+    "RUF012",
+    "PLC0105",
+    "FA102",
+
+    # code complexity
+    "C",
+    "C901",
+
+    # trailing commas
+    "COM812",
+
+    "PLR",
+    "INP",
+    "TRY",
+    "SIM300",
+    "SIM114",
+
+    "DJ008",
+    "TD002",
+    "TD003",
+    "FIX001",
+    "FIX002",
+    "FA100",
+
+    "ERA001",
+]
+
+extend-exclude = ["migrations", "__init__.py", "__main__.py", "settings"]
